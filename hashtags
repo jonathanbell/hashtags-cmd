@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use GetHashtags\HashtagSet;
+
+$hashtag_set = new HashtagSet(__DIR__.'/data');
+
+if ($argv[0] !== 'hashtags') {
+  exit('For usage see: ');
+}
+
+unset($argv[0]);
+
+echo $hashtag_set->makeHashtagStringForPost($argv).PHP_EOL.PHP_EOL;

@@ -1,0 +1,7 @@
+# Mac OS
+.DS_Store
+# Thumbnails
+._*
+
+# Composer
+/vendor/

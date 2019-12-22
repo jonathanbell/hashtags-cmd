@@ -1,0 +1,22 @@
+{
+    "name": "jonathanbell/hashtags-cmd",
+    "description": "Get a collection of hashtags by category on the command line for use with Instagram.",
+    "type": "library",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Jonathan Bell",
+            "email": "jonathanbell.ca@gmail.com"
+        }
+    ],
+    "repositories":[
+        {
+            "type": "vcs",
+            "url": "git@github.com:jonathanbell/get-hashtags.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "jonathanbell/get-hashtags": "*"
+    }
+}
