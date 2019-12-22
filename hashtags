@@ -14,4 +14,11 @@ if ($argv[0] !== 'hashtags') {
 
 unset($argv[0]);
 
+if ($argv[1] === 'categories') {
+  echo 'Categories:'.PHP_EOL;
+  print_r($hashtag_set->getCategories());
+  echo PHP_EOL;
+  exit(0);
+}
+
 echo $hashtag_set->makeHashtagStringForPost($argv).PHP_EOL.PHP_EOL;
