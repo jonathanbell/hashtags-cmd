@@ -1,6 +1,6 @@
 # Hashtags cmd
 
-Uses text files organized by category (filename) to randomize and display useful hashtags on the command line. The 30 or less hashtags can then be copied and pasted into Instagram.
+Uses text files organized by category (filename) to randomize and display useful hashtags and Instagram influencer accounts on the command line. The 30 or less hashtags along with the influencer accounts can then be copied and pasted into Instagram as a single string.
 
 ## Usage
 
@@ -8,7 +8,7 @@ Uses text files organized by category (filename) to randomize and display useful
 php hashtags hockey soccer etc
 ```
 
-Each parameter should be a requested category. Store your hashtags (one per line) inside text files inside the `data` directory. The filename of each file is a category. So, store related hashtags in each of their own files.
+Each parameter should be a requested category (in the case of the example, the categories are: `hockey`, `soccer`, and `etc`). Store your hashtags (one per line) inside text files inside the `data/hashtags` directory. The filename of each file is a category. So, store related hashtags in each of their own files. Store influencer account names in separate files inside `data/users` (each file being its own category).
 
 ## Installation
 
