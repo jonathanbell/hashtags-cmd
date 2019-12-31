@@ -6,19 +6,43 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use GetHashtags\HashtagSet;
 
-$hashtag_set = new HashtagSet(__DIR__.'/data');
+$hashtag_set = new HashtagSet(__DIR__.'/data/hashtags');
 
 if ($argv[0] !== 'hashtags') {
-  exit('For usage see: ');
+  exit('For usage see: https://github.com/jonathanbell/hashtags-cmd#usage');
 }
 
 unset($argv[0]);
 
+$categories = $hashtag_set->getCategories();
+
+// List the categories.
 if ($argv[1] === 'categories') {
-  echo 'Categories:'.PHP_EOL;
-  print_r($hashtag_set->getCategories());
+  echo 'Categories:'.PHP_EOL.PHP_EOL;
+  print_r($categories);
   echo PHP_EOL;
   exit(0);
 }
 
-echo $hashtag_set->makeHashtagStringForPost($argv).PHP_EOL.PHP_EOL;
+echo $hashtag_set->makeHashtagStringForPost($argv);
+
+// Add on users for each category, if we have them.
+foreach ($categories as $category) {
+  $filepath = ($argv[1] === 'test')
+    ? __DIR__.'/data/users/test.txt'
+    : __DIR__.'/data/users/'.$category.'.txt';
+
+  if (file_exists($filepath)) {
+    $users = file($filepath, FILE_IGNORE_NEW_LINES);
+    foreach ($users as $user) {
+      echo $user.' ';
+    }
+  }
+
+  if ($filepath === __DIR__.'/data/users/test.txt') {
+    break;
+  }
+}
+
+echo PHP_EOL.PHP_EOL;
+exit(0);
