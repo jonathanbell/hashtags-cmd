@@ -28,18 +28,21 @@ echo $hashtag_set->makeHashtagStringForPost($argv);
 
 // Add on users for each category, if we have them.
 foreach ($categories as $category) {
-  $filepath = ($argv[1] === 'test')
+  $testing = ($argv[1] === 'test');
+  $filepath = ($testing)
     ? __DIR__.'/data/users/test.txt'
     : __DIR__.'/data/users/'.$category.'.txt';
 
   if (file_exists($filepath)) {
     $users = file($filepath, FILE_IGNORE_NEW_LINES);
     foreach ($users as $user) {
-      echo $user.' ';
+      if (rand(0,1) || $testing) {
+        echo $user.' ';
+      }
     }
   }
 
-  if ($filepath === __DIR__.'/data/users/test.txt') {
+  if ($testing) {
     break;
   }
 }
