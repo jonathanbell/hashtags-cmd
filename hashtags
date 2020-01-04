@@ -27,7 +27,7 @@ if ($argv[1] === 'categories') {
 echo $hashtag_set->makeHashtagStringForPost($argv);
 
 // Add on users for each category, if we have them.
-foreach ($categories as $category) {
+foreach ($argv as $category) {
   $testing = ($argv[1] === 'test');
   $filepath = ($testing)
     ? __DIR__.'/data/users/test.txt'
